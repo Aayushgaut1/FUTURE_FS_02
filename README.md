@@ -1,158 +1,75 @@
-# Client Lead Management System (Mini CRM)
+Client Lead Management System (Mini CRM)
 
-A simple CRM to manage client leads from website contact forms.
+A full-stack CRM application to manage and track client leads from website contact forms.
 
-**Tech stack:** React (frontend) · Node.js / Express (backend) · MySQL (database)
+Tech Stack
 
----
+Frontend: React (Vite)
 
-## Features
+Backend: Node.js, Express.js
 
-- **Lead listing** — Name, email, source, status
-- **Lead status updates** — New / Contacted / Converted
-- **Notes and follow-ups** — Per-lead notes with author and timestamp
-- **Add & edit leads** — Full CRUD with forms and modals
-- **Dashboard** — Overview stats and recent leads
+Database: MySQL
 
-*(Secure admin access can be added later as recommended.)*
+Features
 
----
+Lead listing (name, email, source, status)
 
-## Project structure
+Status updates: New → Contacted → Converted
 
-```
-Client Lead Management Dashboard/
-├── src/                    # React frontend (Vite)
-├── server/                 # Node.js API (Express + MySQL)
-│   ├── routes/             # leads & notes API
+Notes & follow-ups per lead (with timestamp)
+
+Full CRUD operations
+
+Dashboard with overview statistics
+
+Project Structure
+Client-Lead-Management-System/
+├── src/              # React frontend
+├── server/           # Express API + MySQL
+│   ├── routes/
 │   ├── db.js
-│   ├── schema.sql         # MySQL tables
-│   └── .env.example
-├── crm-frontend/           # Optional plain HTML/CSS/JS version
-├── package.json            # Frontend deps
+│   └── schema.sql
+├── package.json
 └── README.md
-```
+Setup
+1. Database
 
----
+Create database and run schema:
 
-## Setup
-
-### 1. MySQL
-
-- Install [MySQL](https://dev.mysql.com/downloads/) and start the server.
-- Create the database and run the schema:
-
-```bash
-mysql -u root -p
-```
-
-```sql
 CREATE DATABASE lead_management;
 USE lead_management;
 SOURCE server/schema.sql;
-```
-
-Or run the contents of `server/schema.sql` in MySQL Workbench / any MySQL client.
-
-### 2. Backend (Node.js)
-
-```bash
+2. Backend
 cd server
 cp .env.example .env
-```
-
-Edit `server/.env`:
-
-```
-PORT=3001
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=lead_management
-```
-
-Then:
-
-```bash
 npm install
 npm run dev
-```
+3. Frontend
 
-API runs at **http://localhost:3001**. Health check: http://localhost:3001/api/health
+From project root:
 
-### 3. Frontend (React)
-
-From the **project root** (not inside `server`):
-
-```bash
 npm install
 npm run dev
-```
 
-Frontend runs at **http://localhost:5173** and proxies `/api` to the backend.
+App runs at:
+http://localhost:5173
 
----
+API Endpoints
+Method	Endpoint
+GET	/api/leads
+POST	/api/leads
+PUT	/api/leads/:id
+DELETE	/api/leads/:id
+GET	/api/leads/:id/notes
+POST	/api/leads/:id/notes
+Skills Demonstrated
 
-## Run the full app
+REST API development
 
-1. Start MySQL.
-2. In one terminal: `cd server && npm run dev`
-3. In another: `npm run dev` (from project root)
-4. Open http://localhost:5173 and use the app (e.g. login → Dashboard → Leads).
+Database design (MySQL)
 
----
+Full-stack integration
 
-## API (backend)
+CRUD operations
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | /api/leads | List all leads |
-| GET | /api/leads/:id | Get one lead |
-| POST | /api/leads | Create lead |
-| PUT | /api/leads/:id | Update lead |
-| DELETE | /api/leads/:id | Delete lead |
-| GET | /api/leads/:id/notes | List notes for lead |
-| POST | /api/leads/:id/notes | Add note |
-
----
-
-## Skills practiced
-
-- CRUD operations
-- Backend integration (REST API)
-- Database management (MySQL)
-- Business workflows (lead pipeline)
-
----
-
----
-
-## Push to GitHub
-
-Your project is already a Git repo with an initial commit. To put it on GitHub:
-
-### 1. Create a new repository on GitHub
-
-1. Go to [github.com](https://github.com) and sign in.
-2. Click **+** (top right) → **New repository**.
-3. Set **Repository name** (e.g. `client-lead-management-crm`).
-4. Leave it **empty** (no README, no .gitignore).
-5. Click **Create repository**.
-
-### 2. Connect and push from your machine
-
-In a terminal, from your project folder (`Client Lead Management Dashboard`), run (replace `YOUR_USERNAME` and `REPO_NAME` with your GitHub username and repo name):
-
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
-git branch -M main
-git push -u origin main
-```
-
-If GitHub asks for a password, use a **Personal Access Token** (Settings → Developer settings → Personal access tokens) instead of your account password.
-
----
-
-## License
-
-MIT
+Business workflow implementation
