@@ -125,6 +125,34 @@ Frontend runs at **http://localhost:5173** and proxies `/api` to the backend.
 
 ---
 
+---
+
+## Push to GitHub
+
+Your project is already a Git repo with an initial commit. To put it on GitHub:
+
+### 1. Create a new repository on GitHub
+
+1. Go to [github.com](https://github.com) and sign in.
+2. Click **+** (top right) → **New repository**.
+3. Set **Repository name** (e.g. `client-lead-management-crm`).
+4. Leave it **empty** (no README, no .gitignore).
+5. Click **Create repository**.
+
+### 2. Connect and push from your machine
+
+In a terminal, from your project folder (`Client Lead Management Dashboard`), run (replace `YOUR_USERNAME` and `REPO_NAME` with your GitHub username and repo name):
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
+git branch -M main
+git push -u origin main
+```
+
+If GitHub asks for a password, use a **Personal Access Token** (Settings → Developer settings → Personal access tokens) instead of your account password.
+
+---
+
 ## License
 
 MIT
