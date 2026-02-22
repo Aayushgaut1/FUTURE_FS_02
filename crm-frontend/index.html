@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LeadFlow CRM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-icon">⚡</div>
+      <span class="logo-text">LeadFlow</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-page="dashboard">Dashboard</button>
+      <button class="nav-item" data-page="leads">Leads</button>
+      <button class="nav-item" data-page="clients">Clients</button>
+      <button class="nav-item" data-page="settings">Settings</button>
+    </nav>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <h1 id="page-title">Dashboard</h1>
+    </header>
+
+    <main class="content">
+
+      <!-- ================= DASHBOARD ================= -->
+      <div id="dashboard" class="section active">
+
+        <!-- Stats -->
+        <section class="stats-grid">
+
+          <article class="stat-card">
+            <div class="stat-title">Total Leads</div>
+            <div class="stat-value" id="totalLeads">0</div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-title">New Leads</div>
+            <div class="stat-value" id="newLeads">0</div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-title">Contacted</div>
+            <div class="stat-value" id="contactedLeads">0</div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-title">Converted</div>
+            <div class="stat-value" id="convertedLeads">0</div>
+          </article>
+
+        </section>
+
+        <!-- Growth Chart -->
+        <section class="mid-grid">
+
+          <article class="chart-card">
+            <h2>Lead Growth</h2>
+            <svg viewBox="0 0 400 200" class="growth-chart">
+              <polyline
+                fill="none"
+                stroke="#4F46E5"
+                stroke-width="3"
+                points="40,140 80,130 120,115 160,120 200,105 240,90 280,80 320,70 360,60"
+              />
+            </svg>
+          </article>
+
+          <!-- Sources -->
+          <article class="sources-card">
+            <h2>Lead Sources</h2>
+            <div id="sourceList"></div>
+          </article>
+
+        </section>
+
+      </div>
+
+      <!-- ================= LEADS ================= -->
+      <div id="leads" class="section">
+
+        <div class="section-header">
+          <h2>Leads</h2>
+          <button class="btn-primary" onclick="openModal('addLeadModal')">
+            Add Lead
+          </button>
+        </div>
+
+        <table id="leadsTable" class="styled-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+      </div>
+
+      <!-- ================= CLIENTS ================= -->
+      <div id="clients" class="section">
+
+        <div class="section-header">
+          <h2>Clients</h2>
+          <button class="btn-primary" onclick="openModal('addClientModal')">
+            Add Client
+          </button>
+        </div>
+
+        <table id="clientsTable" class="styled-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+      </div>
+
+      <!-- ================= SETTINGS ================= -->
+      <div id="settings" class="section">
+        <h2>Settings</h2>
+        <p>Settings panel coming soon.</p>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ================= ADD LEAD MODAL ================= -->
+<div id="addLeadModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Add Lead</h3>
+    <form id="addLeadForm">
+      <input id="leadName" placeholder="Name" required />
+      <input id="leadEmail" placeholder="Email" />
+      <input id="leadPhone" placeholder="Phone" />
+      <button type="submit">Save</button>
+      <button type="button" onclick="closeModal('addLeadModal')">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<!-- ================= ADD CLIENT MODAL ================= -->
+<div id="addClientModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Add Client</h3>
+    <form id="addClientForm">
+      <input id="clientName" placeholder="Name" required />
+      <input id="clientEmail" placeholder="Email" />
+      <input id="clientCompany" placeholder="Company" />
+      <button type="submit">Save</button>
+      <button type="button" onclick="closeModal('addClientModal')">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
