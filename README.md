@@ -51,9 +51,6 @@ From project root:
 npm install
 npm run dev
 
-App runs at:
-http://localhost:5173
-
 API Endpoints
 Method	Endpoint
 GET	/api/leads
